@@ -1,0 +1,1222 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AtlasWaves — Le surf marocain, autrement</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --orange: #E8570A;
+    --orange-dark: #C4490A;
+    --orange-light: #FEE9DC;
+    --navy: #0D3B5E;
+    --teal: #2BA38C;
+    --bg: #FFF8F0;
+    --dark: #1a1a1a;
+    --muted: #666;
+    --border: rgba(0,0,0,0.08);
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--bg);
+    color: var(--dark);
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.2rem 3rem;
+    background: var(--bg);
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  .logo {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 22px;
+    letter-spacing: -0.5px;
+    color: var(--dark);
+    text-decoration: none;
+  }
+
+  .logo span { color: var(--orange); }
+
+  .nav-links {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-size: 14px;
+    color: var(--muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--orange); }
+
+  .btn {
+    display: inline-block;
+    padding: 11px 24px;
+    border-radius: 40px;
+    font-size: 14px;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 400;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-decoration: none;
+    border: none;
+  }
+
+  .btn-primary {
+    background: var(--orange);
+    color: #fff;
+  }
+
+  .btn-primary:hover { background: var(--orange-dark); transform: translateY(-1px); }
+
+  .btn-ghost {
+    background: transparent;
+    color: var(--dark);
+    border: 1px solid rgba(0,0,0,0.2);
+  }
+
+  .btn-ghost:hover { border-color: var(--orange); color: var(--orange); }
+
+  /* ── HERO ── */
+  .hero {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 90vh;
+  }
+
+  .hero-left {
+    padding: 5rem 4rem 4rem 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: var(--bg);
+  }
+
+  .eyebrow {
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 0.2em;
+    color: var(--orange);
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .eyebrow::before {
+    content: '';
+    display: inline-block;
+    width: 28px;
+    height: 1.5px;
+    background: var(--orange);
+    flex-shrink: 0;
+  }
+
+  .hero-title {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: clamp(42px, 5.5vw, 64px);
+    line-height: 1.04;
+    letter-spacing: -2px;
+    color: var(--dark);
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-title em {
+    font-style: normal;
+    color: var(--orange);
+  }
+
+  .hero-sub {
+    font-size: 17px;
+    line-height: 1.7;
+    color: var(--muted);
+    font-weight: 300;
+    max-width: 420px;
+    margin-bottom: 2.5rem;
+  }
+
+  .hero-cta {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .hero-right {
+    position: relative;
+    overflow: hidden;
+    background: var(--navy);
+    min-height: 500px;
+  }
+
+  .ocean-gradient {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(160deg, #0D3B5E 0%, #1A6B8A 40%, #2BA38C 70%, #F4A04A 100%);
+  }
+
+  .sun-circle {
+    position: absolute;
+    top: 15%;
+    right: 18%;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: rgba(244, 160, 74, 0.7);
+    box-shadow: 0 0 60px rgba(244, 160, 74, 0.4), 0 0 120px rgba(244, 160, 74, 0.15);
+  }
+
+  .hero-badge {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.25);
+    border-radius: 50px;
+    padding: 8px 16px;
+    color: #fff;
+    font-size: 13px;
+    font-weight: 300;
+    letter-spacing: 0.04em;
+    backdrop-filter: blur(8px);
+  }
+
+  .hero-waves {
+    position: absolute;
+    bottom: 140px;
+    left: 0;
+    right: 0;
+  }
+
+  .hero-spot-cards {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    gap: 10px;
+    padding: 1.5rem;
+    background: linear-gradient(to top, rgba(13,59,94,0.95) 0%, transparent 100%);
+  }
+
+  .spot-mini {
+    flex: 1;
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 12px;
+    padding: 12px 14px;
+    color: #fff;
+    backdrop-filter: blur(6px);
+  }
+
+  .spot-mini-name {
+    font-family: 'Syne', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    margin-bottom: 2px;
+  }
+
+  .spot-mini-region {
+    font-size: 11px;
+    color: rgba(255,255,255,0.55);
+    font-weight: 300;
+  }
+
+  .spot-mini-pill {
+    display: inline-block;
+    margin-top: 6px;
+    font-size: 10px;
+    padding: 2px 8px;
+    border-radius: 20px;
+    letter-spacing: 0.04em;
+  }
+
+  .pill-expert { background: rgba(192,50,10,0.55); color: #ffd0b5; }
+  .pill-inter { background: rgba(232,87,10,0.55); color: #fee9dc; }
+  .pill-deb { background: rgba(43,163,140,0.55); color: #d8f5ee; }
+
+  /* ── STATS BAND ── */
+  .stats-band {
+    background: var(--dark);
+    padding: 2rem 3rem;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .stat-item { text-align: center; }
+
+  .stat-num {
+    font-family: 'Syne', sans-serif;
+    font-size: 32px;
+    font-weight: 800;
+    color: var(--orange);
+  }
+
+  .stat-label {
+    font-size: 13px;
+    color: rgba(255,255,255,0.45);
+    font-weight: 300;
+    margin-top: 2px;
+  }
+
+  .stat-divider {
+    width: 1px;
+    height: 40px;
+    background: rgba(255,255,255,0.1);
+  }
+
+  /* ── SECTIONS ── */
+  section { padding: 6rem 3rem; }
+
+  .section-label {
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 0.75rem;
+  }
+
+  .section-title {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(28px, 3.5vw, 42px);
+    font-weight: 800;
+    letter-spacing: -1.2px;
+    color: var(--dark);
+    margin-bottom: 1rem;
+  }
+
+  .section-sub {
+    font-size: 16px;
+    color: var(--muted);
+    font-weight: 300;
+    max-width: 540px;
+    line-height: 1.7;
+  }
+
+  /* ── RUBRIQUES ── */
+  .rubriques-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 3.5rem;
+  }
+
+  .rubrique-card {
+    background: #fff;
+    border-radius: 18px;
+    padding: 2.25rem 2rem;
+    border: 1px solid rgba(0,0,0,0.06);
+    transition: transform 0.22s, box-shadow 0.22s;
+    cursor: pointer;
+  }
+
+  .rubrique-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 16px 40px rgba(0,0,0,0.07);
+  }
+
+  .rubrique-icon {
+    width: 52px;
+    height: 52px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    margin-bottom: 1.5rem;
+  }
+
+  .icon-orange { background: var(--orange-light); }
+  .icon-teal { background: #d8f5ee; }
+  .icon-blue { background: #dceffe; }
+
+  .rubrique-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 19px;
+    font-weight: 700;
+    color: var(--dark);
+    margin-bottom: 0.65rem;
+  }
+
+  .rubrique-desc {
+    font-size: 14px;
+    color: #888;
+    line-height: 1.65;
+    font-weight: 300;
+  }
+
+  .rubrique-link {
+    display: inline-block;
+    margin-top: 1.25rem;
+    font-size: 13px;
+    color: var(--orange);
+    font-weight: 400;
+    text-decoration: none;
+  }
+
+  /* ── SPOTS ── */
+  .spots-section {
+    background: var(--dark);
+    color: #fff;
+  }
+
+  .spots-section .section-title { color: #fff; }
+  .spots-section .section-sub { color: rgba(255,255,255,0.45); }
+
+  .spots-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    margin-top: 3rem;
+  }
+
+  .spot-card {
+    border-radius: 16px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.22s;
+  }
+
+  .spot-card:hover { transform: translateY(-4px); }
+
+  .spot-card-inner {
+    height: 260px;
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    position: relative;
+  }
+
+  .spot-card-inner::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 55%);
+    border-radius: 16px;
+  }
+
+  .sc1 { background: linear-gradient(160deg, #1E5B8A 0%, #2BA38C 100%); }
+  .sc2 { background: linear-gradient(160deg, #0D3B5E 0%, #1A5B8A 100%); }
+  .sc3 { background: linear-gradient(160deg, #5B2E1E 0%, #C4490A 100%); }
+  .sc4 { background: linear-gradient(160deg, #1a3a2a 0%, #0F6E56 100%); }
+  .sc5 { background: linear-gradient(160deg, #3B1E5B 0%, #8A3AC4 100%); }
+  .sc6 { background: linear-gradient(160deg, #1E3B5B 0%, #3A8AC4 100%); }
+  .sc7 { background: linear-gradient(160deg, #5B3B1E 0%, #C4903A 100%); }
+  .sc8 { background: linear-gradient(160deg, #2A1a3a 0%, #6E0F3B 100%); }
+
+  .spot-info { position: relative; z-index: 1; color: #fff; }
+
+  .spot-name {
+    font-family: 'Syne', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 2px;
+  }
+
+  .spot-region {
+    font-size: 12px;
+    color: rgba(255,255,255,0.55);
+    font-weight: 300;
+    margin-bottom: 6px;
+  }
+
+  .spot-wave {
+    font-size: 11px;
+    color: rgba(255,255,255,0.7);
+    font-weight: 300;
+    margin-top: 4px;
+  }
+
+  /* ── FEATURED ARTICLE ── */
+  .featured-section { background: #fff; }
+
+  .featured-grid {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: 3rem;
+    margin-top: 3.5rem;
+    align-items: center;
+  }
+
+  .featured-img {
+    height: 420px;
+    border-radius: 20px;
+    background: linear-gradient(160deg, #0D3B5E 0%, #2BA38C 60%, #F4A04A 100%);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: flex-end;
+    padding: 2rem;
+  }
+
+  .featured-img-label {
+    background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 8px;
+    padding: 8px 14px;
+    color: #fff;
+    font-size: 13px;
+    backdrop-filter: blur(6px);
+  }
+
+  .featured-cat {
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 1rem;
+  }
+
+  .featured-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 28px;
+    font-weight: 800;
+    letter-spacing: -0.8px;
+    color: var(--dark);
+    line-height: 1.2;
+    margin-bottom: 1.25rem;
+  }
+
+  .featured-excerpt {
+    font-size: 15px;
+    color: var(--muted);
+    line-height: 1.75;
+    font-weight: 300;
+    margin-bottom: 2rem;
+  }
+
+  .featured-meta {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    font-size: 13px;
+    color: #aaa;
+    font-weight: 300;
+    margin-bottom: 2rem;
+  }
+
+  .featured-meta .author {
+    color: var(--dark);
+    font-weight: 500;
+  }
+
+  /* ── ARTICLES GRID ── */
+  .articles-section { background: var(--bg); }
+
+  .articles-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+    margin-top: 3rem;
+  }
+
+  .article-card {
+    background: #fff;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid rgba(0,0,0,0.05);
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .article-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 32px rgba(0,0,0,0.07);
+  }
+
+  .article-thumb {
+    height: 190px;
+  }
+
+  .at1 { background: linear-gradient(135deg, #0D3B5E, #2BA38C); }
+  .at2 { background: linear-gradient(135deg, #5B2E1E, #E8570A); }
+  .at3 { background: linear-gradient(135deg, #1a3a2a, #3B6D11); }
+  .at4 { background: linear-gradient(135deg, #3B1E5B, #8A3AC4); }
+  .at5 { background: linear-gradient(135deg, #0D3B5E, #1A5B8A); }
+  .at6 { background: linear-gradient(135deg, #5B3B1E, #C4903A); }
+
+  .article-body { padding: 1.25rem 1.4rem 1.4rem; }
+
+  .article-cat {
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 0.5rem;
+  }
+
+  .article-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--dark);
+    line-height: 1.35;
+    margin-bottom: 0.75rem;
+  }
+
+  .article-meta {
+    font-size: 12px;
+    color: #bbb;
+    font-weight: 300;
+  }
+
+  /* ── CORPS & SURF HIGHLIGHT ── */
+  .corps-section {
+    background: var(--dark);
+    color: #fff;
+  }
+
+  .corps-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    margin-top: 3rem;
+  }
+
+  .corps-title {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(28px, 3vw, 38px);
+    font-weight: 800;
+    letter-spacing: -1px;
+    line-height: 1.1;
+    color: #fff;
+    margin-bottom: 1.25rem;
+  }
+
+  .corps-title em {
+    font-style: normal;
+    color: var(--orange);
+  }
+
+  .corps-sub {
+    font-size: 15px;
+    color: rgba(255,255,255,0.5);
+    font-weight: 300;
+    line-height: 1.75;
+    margin-bottom: 2rem;
+  }
+
+  .corps-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 2.5rem;
+  }
+
+  .corps-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    font-size: 14px;
+    color: rgba(255,255,255,0.75);
+    font-weight: 300;
+    line-height: 1.5;
+  }
+
+  .corps-list li::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--orange);
+    margin-top: 7px;
+    flex-shrink: 0;
+  }
+
+  .corps-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  .corps-card {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 14px;
+    padding: 1.5rem;
+    transition: background 0.2s;
+    cursor: pointer;
+  }
+
+  .corps-card:hover { background: rgba(255,255,255,0.1); }
+
+  .corps-card-icon {
+    font-size: 22px;
+    margin-bottom: 0.75rem;
+  }
+
+  .corps-card-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 4px;
+  }
+
+  .corps-card-desc {
+    font-size: 12px;
+    color: rgba(255,255,255,0.4);
+    font-weight: 300;
+    line-height: 1.5;
+  }
+
+  /* ── NEWSLETTER ── */
+  .newsletter-section {
+    background: var(--orange);
+    color: #fff;
+    text-align: center;
+    padding: 5rem 3rem;
+  }
+
+  .nl-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 36px;
+    font-weight: 800;
+    letter-spacing: -1px;
+    margin-bottom: 1rem;
+  }
+
+  .nl-sub {
+    font-size: 16px;
+    font-weight: 300;
+    color: rgba(255,255,255,0.75);
+    margin-bottom: 2.5rem;
+  }
+
+  .nl-form {
+    display: flex;
+    gap: 10px;
+    max-width: 460px;
+    margin: 0 auto;
+  }
+
+  .nl-input {
+    flex: 1;
+    padding: 13px 18px;
+    border-radius: 40px;
+    border: none;
+    font-size: 14px;
+    font-family: 'DM Sans', sans-serif;
+    outline: none;
+    color: var(--dark);
+  }
+
+  .nl-btn {
+    padding: 13px 24px;
+    border-radius: 40px;
+    background: var(--dark);
+    color: #fff;
+    border: none;
+    font-size: 14px;
+    font-family: 'DM Sans', sans-serif;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background 0.2s;
+  }
+
+  .nl-btn:hover { background: #333; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: #111;
+    color: rgba(255,255,255,0.4);
+    padding: 3rem 3rem 2rem;
+  }
+
+  .footer-top {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 3rem;
+    padding-bottom: 3rem;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    margin-bottom: 2rem;
+  }
+
+  .footer-brand .logo { font-size: 20px; }
+
+  .footer-tagline {
+    font-size: 13px;
+    color: rgba(255,255,255,0.35);
+    font-weight: 300;
+    line-height: 1.6;
+    margin-top: 0.75rem;
+    max-width: 240px;
+  }
+
+  .footer-col-title {
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.6);
+    margin-bottom: 1rem;
+  }
+
+  .footer-links {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .footer-links a {
+    font-size: 13px;
+    color: rgba(255,255,255,0.35);
+    text-decoration: none;
+    font-weight: 300;
+    transition: color 0.2s;
+  }
+
+  .footer-links a:hover { color: var(--orange); }
+
+  .footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12px;
+  }
+
+  .footer-socials {
+    display: flex;
+    gap: 1.5rem;
+  }
+
+  .footer-socials a {
+    font-size: 13px;
+    color: rgba(255,255,255,0.35);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .footer-socials a:hover { color: var(--orange); }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 768px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { display: none; }
+    .hero { grid-template-columns: 1fr; }
+    .hero-right { min-height: 320px; }
+    .hero-left { padding: 3rem 1.5rem; }
+    section { padding: 4rem 1.5rem; }
+    .rubriques-grid { grid-template-columns: 1fr; }
+    .spots-grid { grid-template-columns: repeat(2, 1fr); }
+    .articles-grid { grid-template-columns: 1fr; }
+    .featured-grid { grid-template-columns: 1fr; }
+    .corps-grid { grid-template-columns: 1fr; }
+    .footer-top { grid-template-columns: 1fr 1fr; gap: 2rem; }
+    .stats-band { flex-wrap: wrap; gap: 1.5rem; }
+    .stat-divider { display: none; }
+    .nl-form { flex-direction: column; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="logo" href="#">Atlas<span>Waves</span></a>
+  <ul class="nav-links">
+    <li><a href="#spots">Spots</a></li>
+    <li><a href="#technique">Technique</a></li>
+    <li><a href="#corps">Corps & Surf</a></li>
+    <li><a href="#articles">Mag</a></li>
+    <li><a href="#about">À propos</a></li>
+  </ul>
+  <a class="btn btn-primary" href="#newsletter">Newsletter</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero" style="padding:0;">
+  <div class="hero-left">
+    <div class="eyebrow">Surf au Maroc</div>
+    <h1 class="hero-title">
+      L'Atlantique,<br>
+      les <em>vagues</em>,<br>
+      le Maroc.
+    </h1>
+    <p class="hero-sub">
+      Spots, technique, culture et médecine du surf — par un Marocain qui surfe et qui soigne.
+    </p>
+    <div class="hero-cta">
+      <a class="btn btn-primary" href="#spots">Explorer les spots</a>
+      <a class="btn btn-ghost" href="#corps">Corps & Surf</a>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <div class="ocean-gradient"></div>
+    <div class="sun-circle"></div>
+    <div class="hero-badge">🌊 Côte Atlantique Marocaine</div>
+    <svg class="hero-waves" viewBox="0 0 700 100" preserveAspectRatio="none" style="height:100px; position:absolute; bottom:130px; left:0; right:0; width:100%;">
+      <path d="M0,50 C100,10 200,90 300,50 C400,10 500,80 600,40 C650,20 680,55 700,35 L700,100 L0,100Z" fill="rgba(255,255,255,0.06)"/>
+      <path d="M0,65 C120,30 240,95 360,55 C480,15 580,80 700,50 L700,100 L0,100Z" fill="rgba(255,255,255,0.05)"/>
+    </svg>
+    <div class="hero-spot-cards">
+      <div class="spot-mini">
+        <div class="spot-mini-name">Anchor Point</div>
+        <div class="spot-mini-region">Taghazout · Agadir</div>
+        <div class="spot-mini-pill pill-expert">Expert</div>
+      </div>
+      <div class="spot-mini">
+        <div class="spot-mini-name">Imsouane</div>
+        <div class="spot-mini-region">Côte d'Agadir</div>
+        <div class="spot-mini-pill pill-deb">Débutant</div>
+      </div>
+      <div class="spot-mini">
+        <div class="spot-mini-name">Safi</div>
+        <div class="spot-mini-region">Doukkala · Abda</div>
+        <div class="spot-mini-pill pill-inter">Intermédiaire</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS BAND -->
+<div class="stats-band">
+  <div class="stat-item">
+    <div class="stat-num">20+</div>
+    <div class="stat-label">Spots couverts</div>
+  </div>
+  <div class="stat-divider"></div>
+  <div class="stat-item">
+    <div class="stat-num">3500km</div>
+    <div class="stat-label">De côte atlantique</div>
+  </div>
+  <div class="stat-divider"></div>
+  <div class="stat-item">
+    <div class="stat-num">12 mois</div>
+    <div class="stat-label">De surf par an</div>
+  </div>
+  <div class="stat-divider"></div>
+  <div class="stat-item">
+    <div class="stat-num">1 médecin</div>
+    <div class="stat-label">Qui surfe vraiment</div>
+  </div>
+</div>
+
+<!-- RUBRIQUES -->
+<section id="technique">
+  <div class="section-label">Ce qu'on couvre</div>
+  <h2 class="section-title">Tout ce que tu cherchais<br>sur le surf marocain</h2>
+  <p class="section-sub">Pas un blog de touriste. Pas une pub d'école de surf. Un regard local, honnête, et documenté.</p>
+  <div class="rubriques-grid">
+    <div class="rubrique-card">
+      <div class="rubrique-icon icon-orange">🗺️</div>
+      <div class="rubrique-title">Guide des spots</div>
+      <div class="rubrique-desc">Fiches détaillées : conditions, niveau requis, meilleure saison, accès, logement sur place. Du nord au sud de la côte atlantique.</div>
+      <a class="rubrique-link" href="#spots">Voir les spots →</a>
+    </div>
+    <div class="rubrique-card">
+      <div class="rubrique-icon icon-teal">🏄</div>
+      <div class="rubrique-title">Technique & Progression</div>
+      <div class="rubrique-desc">Lecture de l'océan, prise de vague, travail du rail, manœuvres. Pour progresser intelligemment, pas juste survivre.</div>
+      <a class="rubrique-link" href="#articles">Lire les guides →</a>
+    </div>
+    <div class="rubrique-card">
+      <div class="rubrique-icon icon-blue">🩺</div>
+      <div class="rubrique-title">Corps & Surf</div>
+      <div class="rubrique-desc">Blessures, prévention, récupération, physio du surfeur. Par un médecin spécialiste qui surfe — angle que personne d'autre n'a.</div>
+      <a class="rubrique-link" href="#corps">Explorer →</a>
+    </div>
+  </div>
+</section>
+
+<!-- SPOTS -->
+<section id="spots" class="spots-section">
+  <div class="section-label" style="color:var(--orange);">Spots à la une</div>
+  <h2 class="section-title">L'Atlantique marocain,<br>spot par spot</h2>
+  <p class="section-sub" style="color:rgba(255,255,255,0.4);">Du cold-water de Tanger aux barrel de Safi, en passant par la longboard de légende d'Imsouane.</p>
+  <div class="spots-grid">
+    <div class="spot-card">
+      <div class="spot-card-inner sc1">
+        <div class="spot-info">
+          <div class="spot-name">Anchor Point</div>
+          <div class="spot-region">Taghazout · Agadir</div>
+          <div class="spot-mini-pill pill-expert" style="margin-top:6px;">Expert</div>
+          <div class="spot-wave">Reef break · Droite longue</div>
+        </div>
+      </div>
+    </div>
+    <div class="spot-card">
+      <div class="spot-card-inner sc2">
+        <div class="spot-info">
+          <div class="spot-name">Imsouane</div>
+          <div class="spot-region">Province d'Agadir</div>
+          <div class="spot-mini-pill pill-deb" style="margin-top:6px;">Débutant</div>
+          <div class="spot-wave">Point break · La + longue du Maroc</div>
+        </div>
+      </div>
+    </div>
+    <div class="spot-card">
+      <div class="spot-card-inner sc3">
+        <div class="spot-info">
+          <div class="spot-name">Safi</div>
+          <div class="spot-region">Doukkala · Abda</div>
+          <div class="spot-mini-pill pill-inter" style="margin-top:6px;">Intermédiaire</div>
+          <div class="spot-wave">Beach & reef · WCT historique</div>
+        </div>
+      </div>
+    </div>
+    <div class="spot-card">
+      <div class="spot-card-inner sc4">
+        <div class="spot-info">
+          <div class="spot-name">Essaouira</div>
+          <div class="spot-region">Marrakech · Safi</div>
+          <div class="spot-mini-pill pill-inter" style="margin-top:6px;">Tous niveaux</div>
+          <div class="spot-wave">Beach break · Wind & surf</div>
+        </div>
+      </div>
+    </div>
+    <div class="spot-card">
+      <div class="spot-card-inner sc5">
+        <div class="spot-info">
+          <div class="spot-name">La Source</div>
+          <div class="spot-region">Taghazout · Agadir</div>
+          <div class="spot-mini-pill pill-inter" style="margin-top:6px;">Intermédiaire</div>
+          <div class="spot-wave">Point break · Gauche</div>
+        </div>
+      </div>
+    </div>
+    <div class="spot-card">
+      <div class="spot-card-inner sc6">
+        <div class="spot-info">
+          <div class="spot-name">Dakhla</div>
+          <div class="spot-region">Oued Ed-Dahab</div>
+          <div class="spot-mini-pill pill-inter" style="margin-top:6px;">Intermédiaire</div>
+          <div class="spot-wave">Lagon + reef · Kite & surf</div>
+        </div>
+      </div>
+    </div>
+    <div class="spot-card">
+      <div class="spot-card-inner sc7">
+        <div class="spot-info">
+          <div class="spot-name">Mehdia</div>
+          <div class="spot-region">Kénitra · Nord</div>
+          <div class="spot-mini-pill pill-deb" style="margin-top:6px;">Débutant</div>
+          <div class="spot-wave">Beach break · Accessible</div>
+        </div>
+      </div>
+    </div>
+    <div class="spot-card">
+      <div class="spot-card-inner sc8">
+        <div class="spot-info">
+          <div class="spot-name">Oualidia</div>
+          <div class="spot-region">Casablanca · Settat</div>
+          <div class="spot-mini-pill pill-deb" style="margin-top:6px;">Débutant</div>
+          <div class="spot-wave">Lagon protégé · Apprentissage</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURED ARTICLE -->
+<section class="featured-section">
+  <div class="section-label">À la une</div>
+  <h2 class="section-title">Article en vedette</h2>
+  <div class="featured-grid">
+    <div class="featured-img">
+      <div class="featured-img-label">Corps & Surf · Lecture : 8 min</div>
+    </div>
+    <div>
+      <div class="featured-cat">Corps & Surf</div>
+      <h3 class="featured-title">Épaule du surfeur : comprendre, prévenir et soigner</h3>
+      <div class="featured-meta">
+        <span class="author">Dr. Saad</span>
+        <span>·</span>
+        <span>8 min de lecture</span>
+        <span>·</span>
+        <span>Mai 2026</span>
+      </div>
+      <p class="featured-excerpt">
+        Le paddling sollicite l'épaule à chaque séance. Impingement, tendinopathie de la coiffe, instabilité gléno-humérale — ce que les surfeurs marocains ignorent souvent sur leurs propres blessures, et comment les éviter avant qu'elles deviennent chroniques.
+      </p>
+      <a class="btn btn-primary" href="#">Lire l'article</a>
+    </div>
+  </div>
+</section>
+
+<!-- ARTICLES -->
+<section id="articles" class="articles-section">
+  <div class="section-label">Le mag</div>
+  <h2 class="section-title">Derniers articles</h2>
+  <div class="articles-grid">
+    <div class="article-card">
+      <div class="article-thumb at1"></div>
+      <div class="article-body">
+        <div class="article-cat">Spots</div>
+        <div class="article-title">Anchor Point : pourquoi c'est le mythe du surf marocain</div>
+        <div class="article-meta">5 min · Spots</div>
+      </div>
+    </div>
+    <div class="article-card">
+      <div class="article-thumb at2"></div>
+      <div class="article-body">
+        <div class="article-cat">Technique</div>
+        <div class="article-title">Lire les séries : comment anticiper les vagues comme un local</div>
+        <div class="article-meta">6 min · Technique</div>
+      </div>
+    </div>
+    <div class="article-card">
+      <div class="article-thumb at3"></div>
+      <div class="article-body">
+        <div class="article-cat">Lifestyle</div>
+        <div class="article-title">Surfer au Maroc en hiver : le guide complet saison froide</div>
+        <div class="article-meta">7 min · Lifestyle</div>
+      </div>
+    </div>
+    <div class="article-card">
+      <div class="article-thumb at4"></div>
+      <div class="article-body">
+        <div class="article-cat">Corps & Surf</div>
+        <div class="article-title">Mal de dos après une session : causes et solutions vraies</div>
+        <div class="article-meta">5 min · Dr. Saad</div>
+      </div>
+    </div>
+    <div class="article-card">
+      <div class="article-thumb at5"></div>
+      <div class="article-body">
+        <div class="article-cat">Spots</div>
+        <div class="article-title">Imsouane : la plus longue droite d'Afrique, mode d'emploi</div>
+        <div class="article-meta">4 min · Spots</div>
+      </div>
+    </div>
+    <div class="article-card">
+      <div class="article-thumb at6"></div>
+      <div class="article-body">
+        <div class="article-cat">Équipement</div>
+        <div class="article-title">Choisir sa planche au Maroc : ce que personne ne te dit</div>
+        <div class="article-meta">6 min · Équipement</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CORPS & SURF -->
+<section id="corps" class="corps-section">
+  <div class="section-label" style="color:var(--orange);">Médecine du surf</div>
+  <div class="corps-grid">
+    <div>
+      <h2 class="corps-title">Le <em>corps</em> du surfeur,<br>enfin expliqué.</h2>
+      <p class="corps-sub">
+        La plupart des blessures de surf sont évitables. Mais personne ne prend le temps d'expliquer vraiment pourquoi elles arrivent et comment les gérer — pas les écoles de surf, pas les médecins généralistes.
+      </p>
+      <ul class="corps-list">
+        <li>Anatomie et biomécanique du paddling et du take-off</li>
+        <li>Blessures fréquentes : épaule, genou, nuque, rachis lombaire</li>
+        <li>Prévention active et échauffement spécifique surf</li>
+        <li>Récupération post-session et nutrition du surfeur</li>
+        <li>Quand consulter et quoi demander à ton médecin</li>
+      </ul>
+      <a class="btn btn-primary" href="#articles">Lire les articles Corps & Surf</a>
+    </div>
+    <div class="corps-cards">
+      <div class="corps-card">
+        <div class="corps-card-icon">🦾</div>
+        <div class="corps-card-title">Épaule</div>
+        <div class="corps-card-desc">Coiffe des rotateurs, impingement, instabilité — la blessure n°1 du surfeur</div>
+      </div>
+      <div class="corps-card">
+        <div class="corps-card-icon">🦵</div>
+        <div class="corps-card-title">Genou</div>
+        <div class="corps-card-desc">Entorse, ménisque, chondropathie — comprendre et prévenir</div>
+      </div>
+      <div class="corps-card">
+        <div class="corps-card-icon">🧠</div>
+        <div class="corps-card-title">Rachis</div>
+        <div class="corps-card-desc">Lombalgies, cervicalgies, spondylarthrose précoce chez le surfeur</div>
+      </div>
+      <div class="corps-card">
+        <div class="corps-card-icon">⚡</div>
+        <div class="corps-card-title">Récupération</div>
+        <div class="corps-card-desc">Protocoles de récup, étirements, nutrition — optimiser entre les sessions</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NEWSLETTER -->
+<section id="newsletter" class="newsletter-section" style="padding:5rem 3rem;">
+  <h2 class="nl-title">Les vagues arrivent.</h2>
+  <p class="nl-sub">Nouveaux spots, articles Corps & Surf, conditions — dans ta boîte chaque semaine.</p>
+  <div class="nl-form">
+    <input class="nl-input" type="email" placeholder="ton@email.com">
+    <button class="nl-btn">Je m'abonne</button>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <a class="logo" href="#">Atlas<span>Waves</span></a>
+      <p class="footer-tagline">Le surf marocain vu de l'intérieur. Spots, technique, culture et médecine — par un local qui surfe.</p>
+    </div>
+    <div>
+      <div class="footer-col-title">Explorer</div>
+      <ul class="footer-links">
+        <li><a href="#">Guide des spots</a></li>
+        <li><a href="#">Technique</a></li>
+        <li><a href="#">Corps & Surf</a></li>
+        <li><a href="#">Lifestyle</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Spots</div>
+      <ul class="footer-links">
+        <li><a href="#">Anchor Point</a></li>
+        <li><a href="#">Imsouane</a></li>
+        <li><a href="#">Safi</a></li>
+        <li><a href="#">Dakhla</a></li>
+        <li><a href="#">Voir tous →</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">À propos</div>
+      <ul class="footer-links">
+        <li><a href="#">Qui suis-je ?</a></li>
+        <li><a href="#">Contact</a></li>
+        <li><a href="#">Newsletter</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 AtlasWaves — Le surf marocain, autrement.</span>
+    <div class="footer-socials">
+      <a href="#">Instagram</a>
+      <a href="#">YouTube</a>
+      <a href="#">Contact</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
