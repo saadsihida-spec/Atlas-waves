@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Imsouane — Fiche spot surf Maroc | AtlasWaves</title>
+<meta name="description" content="Fiche spot complète sur Imsouane, Maroc. La plus longue droite d'Afrique, conditions réelles, meilleure saison, niveau requis et avis honnête d'un surfeur local.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --orange: #E8570A; --orange-dark: #C4490A; --orange-light: #FEE9DC;
+    --navy: #0D3B5E; --teal: #2BA38C; --bg: #FFF8F0;
+    --dark: #1a1a1a; --muted: #666; --border: rgba(0,0,0,0.08);
+  }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--dark); line-height: 1.6; overflow-x: hidden; }
+
+  nav { display: flex; align-items: center; justify-content: space-between; padding: 1.2rem 3rem; background: var(--bg); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 100; }
+  .logo { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 22px; letter-spacing: -0.5px; color: var(--dark); text-decoration: none; }
+  .logo span { color: var(--orange); }
+  .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+  .nav-links a { font-size: 14px; color: var(--muted); text-decoration: none; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--orange); }
+  .btn { display: inline-block; padding: 11px 24px; border-radius: 40px; font-size: 14px; font-family: 'DM Sans', sans-serif; cursor: pointer; transition: all 0.2s; text-decoration: none; border: none; }
+  .btn-primary { background: var(--orange); color: #fff; }
+  .btn-primary:hover { background: var(--orange-dark); transform: translateY(-1px); }
+
+  .breadcrumb { padding: 1rem 3rem; font-size: 13px; color: var(--muted); border-bottom: 1px solid var(--border); }
+  .breadcrumb a { color: var(--muted); text-decoration: none; }
+  .breadcrumb a:hover { color: var(--orange); }
+  .breadcrumb span { margin: 0 8px; color: #ccc; }
+
+  .hero { position: relative; height: 88vh; overflow: hidden; }
+  .hero-img { width: 100%; height: 100%; object-fit: cover; object-position: center 30%; }
+  .hero-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0.45) 55%, rgba(0,0,0,0.88) 100%); }
+  .hero-content { position: absolute; bottom: 0; left: 0; right: 0; padding: 3rem; color: #fff; }
+  .spot-eyebrow { font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--orange); margin-bottom: 1rem; display: flex; align-items: center; gap: 8px; }
+  .spot-eyebrow::before { content: ''; display: inline-block; width: 20px; height: 1.5px; background: var(--orange); }
+  .hero-title { font-family: 'Syne', sans-serif; font-size: clamp(48px, 7vw, 80px); font-weight: 800; letter-spacing: -2.5px; line-height: 1.0; margin-bottom: 1rem; }
+  .hero-tagline { font-size: 17px; font-weight: 300; color: rgba(255,255,255,0.72); margin-bottom: 2rem; max-width: 500px; line-height: 1.6; }
+  .hero-chips { display: flex; gap: 10px; flex-wrap: wrap; }
+  .chip { display: inline-flex; align-items: center; gap: 6px; padding: 7px 14px; border-radius: 40px; font-size: 13px; background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.22); color: #fff; backdrop-filter: blur(6px); }
+  .chip-dot { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; }
+  .dot-green { background: #4ade80; }
+  .dot-orange { background: var(--orange); }
+  .dot-blue { background: #60a5fa; }
+
+  .quick-stats { background: var(--dark); padding: 2rem 3rem; display: grid; grid-template-columns: repeat(5, 1fr); gap: 1rem; }
+  .stat-item { text-align: center; }
+  .stat-label { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-bottom: 6px; }
+  .stat-value { font-family: 'Syne', sans-serif; font-size: 17px; font-weight: 700; color: #fff; }
+  .stat-value.good { color: #4ade80; }
+  .stat-value.medium { color: #fbbf24; }
+  .stat-value.hard { color: var(--orange); }
+  .stat-div { width: 1px; background: rgba(255,255,255,0.08); }
+
+  .content-layout { display: grid; grid-template-columns: 1fr 300px; gap: 3.5rem; max-width: 1100px; margin: 0 auto; padding: 4rem 3rem; }
+
+  .article h2 { font-family: 'Syne', sans-serif; font-size: 26px; font-weight: 700; letter-spacing: -0.5px; color: var(--dark); margin: 3.5rem 0 1.25rem; padding-top: 3rem; border-top: 1px solid var(--border); }
+  .article h2:first-child { margin-top: 0; padding-top: 0; border-top: none; }
+  .article p { font-size: 17px; line-height: 1.85; color: #4a4a4a; font-weight: 300; margin-bottom: 1.25rem; }
+  .article strong { color: var(--dark); font-weight: 500; }
+
+  .article-img { width: 100%; border-radius: 16px; overflow: hidden; margin: 2rem 0; }
+  .article-img img { width: 100%; height: 420px; object-fit: cover; display: block; transition: transform 0.4s; }
+  .article-img img:hover { transform: scale(1.02); }
+  .article-img.portrait img { height: 540px; object-position: center top; }
+  .img-caption { font-size: 12px; color: #aaa; font-weight: 300; margin-top: 8px; font-style: italic; padding: 0 4px; }
+
+  .highlight-box { background: var(--orange-light); border-left: 3px solid var(--orange); border-radius: 0 10px 10px 0; padding: 1.25rem 1.5rem; margin: 1.75rem 0; font-size: 16px; line-height: 1.7; color: #7a3010; }
+  .warning-box { background: #fff8e1; border-left: 3px solid #f59e0b; border-radius: 0 10px 10px 0; padding: 1.25rem 1.5rem; margin: 1.75rem 0; font-size: 15px; line-height: 1.7; color: #78350f; }
+
+  .spots-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 1.5rem 0; }
+  .spot-card { background: #fff; border: 1px solid var(--border); border-radius: 14px; padding: 1.25rem; }
+  .spot-card-title { font-family: 'Syne', sans-serif; font-size: 16px; font-weight: 700; color: var(--dark); margin-bottom: 6px; }
+  .spot-card-level { display: inline-block; font-size: 11px; padding: 3px 10px; border-radius: 20px; margin-bottom: 10px; }
+  .level-deb { background: #d8f5ee; color: #0f6e56; }
+  .level-inter { background: #fee9dc; color: #c4490a; }
+  .spot-card-desc { font-size: 13px; color: var(--muted); line-height: 1.6; font-weight: 300; }
+
+  .saison-grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 4px; margin: 1.5rem 0; }
+  .mois { text-align: center; }
+  .mois-label { font-size: 10px; color: var(--muted); margin-bottom: 6px; }
+  .mois-bar { height: 44px; border-radius: 6px; margin-bottom: 4px; }
+  .mois-note { font-size: 9px; color: var(--muted); }
+  .bar-excellent { background: #0f6e56; }
+  .bar-good { background: #2ba38c; }
+  .bar-ok { background: #fbbf24; }
+  .bar-low { background: #e5e5e5; }
+
+  .sidebar { align-self: start; position: sticky; top: 5rem; }
+  .sidebar-card { background: #fff; border: 1px solid var(--border); border-radius: 16px; padding: 1.5rem; margin-bottom: 1.25rem; }
+  .sidebar-card-title { font-family: 'Syne', sans-serif; font-size: 15px; font-weight: 700; color: var(--dark); margin-bottom: 1rem; padding-bottom: 0.75rem; border-bottom: 1px solid var(--border); }
+  .info-row { display: flex; justify-content: space-between; align-items: center; padding: 8px 0; border-bottom: 1px solid rgba(0,0,0,0.04); font-size: 14px; }
+  .info-row:last-child { border-bottom: none; }
+  .info-label { color: var(--muted); font-weight: 300; }
+  .info-val { color: var(--dark); font-weight: 500; }
+  .info-val.good { color: #0f6e56; }
+  .info-val.medium { color: #b45309; }
+  .score-row { display: flex; align-items: center; justify-content: space-between; padding: 8px 0; font-size: 14px; border-bottom: 1px solid rgba(0,0,0,0.04); }
+  .score-row:last-child { border-bottom: none; }
+  .score-label { color: var(--muted); font-weight: 300; }
+  .score-dots { display: flex; gap: 4px; }
+  .dot { width: 10px; height: 10px; border-radius: 50%; }
+  .dot.filled { background: var(--orange); }
+  .dot.empty { background: #e5e5e5; }
+
+  .avis-box { background: var(--dark); color: #fff; border-radius: 16px; padding: 1.5rem; margin-bottom: 1.25rem; }
+  .avis-title { font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--orange); margin-bottom: 0.75rem; }
+  .avis-text { font-size: 14px; line-height: 1.7; color: rgba(255,255,255,0.7); font-weight: 300; font-style: italic; }
+  .avis-author { font-size: 12px; color: rgba(255,255,255,0.35); margin-top: 0.75rem; }
+
+  footer { background: #111; color: rgba(255,255,255,0.4); padding: 2rem 3rem; display: flex; justify-content: space-between; align-items: center; font-size: 13px; }
+  .footer-logo { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 18px; color: #fff; text-decoration: none; }
+  .footer-logo span { color: var(--orange); }
+  .footer-links-row { display: flex; gap: 1.5rem; }
+  .footer-links-row a { color: rgba(255,255,255,0.35); text-decoration: none; font-size: 13px; transition: color 0.2s; }
+  .footer-links-row a:hover { color: var(--orange); }
+
+  @media (max-width: 768px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { display: none; }
+    .hero { height: 70vh; }
+    .hero-content { padding: 1.5rem; }
+    .quick-stats { grid-template-columns: repeat(2, 1fr); padding: 1.5rem; }
+    .stat-div { display: none; }
+    .content-layout { grid-template-columns: 1fr; padding: 2rem 1.5rem; }
+    .sidebar { position: static; }
+    .spots-cards { grid-template-columns: 1fr; }
+    .saison-grid { grid-template-columns: repeat(6, 1fr); }
+    footer { flex-direction: column; gap: 1rem; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="logo" href="../index.html">Atlas<span>Waves</span></a>
+  <ul class="nav-links">
+    <li><a href="../index.html#spots">Spots</a></li>
+    <li><a href="../index.html#technique">Technique</a></li>
+    <li><a href="../index.html#corps">Corps & Surf</a></li>
+    <li><a href="../index.html#articles">Mag</a></li>
+    <li><a href="../about.html">À propos</a></li>
+  </ul>
+  <a class="btn btn-primary" href="../index.html#newsletter">Newsletter</a>
+</nav>
+
+<div class="breadcrumb">
+  <a href="../index.html">Accueil</a>
+  <span>›</span>
+  <a href="../index.html#spots">Spots</a>
+  <span>›</span>
+  Imsouane
+</div>
+
+<section class="hero">
+  <img class="hero-img" src="../images/imsouane-sunset.jpg" alt="Imsouane au coucher du soleil, surfeurs dans la baie avec montagnes en fond">
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="spot-eyebrow">Fiche spot · Maroc atlantique</div>
+    <h1 class="hero-title">Imsouane</h1>
+    <p class="hero-tagline">La plus longue droite d'Afrique. Un village hors du temps. Une vague qui ne pardonne pas l'impatience.</p>
+    <div class="hero-chips">
+      <div class="chip"><div class="chip-dot dot-green"></div>Tous niveaux</div>
+      <div class="chip"><div class="chip-dot dot-blue"></div>Point break</div>
+      <div class="chip"><div class="chip-dot dot-orange"></div>Meilleur : Oct–Fév</div>
+      <div class="chip">80 km d'Agadir</div>
+    </div>
+  </div>
+</section>
+
+<div class="quick-stats">
+  <div class="stat-item">
+    <div class="stat-label">Type de vague</div>
+    <div class="stat-value">Point break</div>
+  </div>
+  <div class="stat-div"></div>
+  <div class="stat-item">
+    <div class="stat-label">Niveau</div>
+    <div class="stat-value good">Tous niveaux</div>
+  </div>
+  <div class="stat-div"></div>
+  <div class="stat-item">
+    <div class="stat-label">Longueur vague</div>
+    <div class="stat-value">600 – 800 m</div>
+  </div>
+  <div class="stat-div"></div>
+  <div class="stat-item">
+    <div class="stat-label">Meilleure saison</div>
+    <div class="stat-value medium">Oct – Fév</div>
+  </div>
+  <div class="stat-div"></div>
+  <div class="stat-item">
+    <div class="stat-label">Foule en saison</div>
+    <div class="stat-value hard">Élevée</div>
+  </div>
+</div>
+
+<div class="content-layout">
+
+  <article class="article">
+
+    <h2>Ce qu'est vraiment Imsouane</h2>
+    <p>
+      Imsouane c'est l'un de ces rares endroits qui tient ses promesses. Niché entre Essaouira au nord (90 km) et Agadir au sud (80 km), ce petit village de pêcheurs berbères est devenu l'un des spots les plus mythiques du surf africain — pour une raison très simple : <strong>sa vague est objectivement exceptionnelle</strong>.
+    </p>
+    <p>
+      La Baie d'Imsouane génère une droite qui peut dérouler sur 600 à 800 mètres dans les bonnes conditions. Deux minutes debout sur la planche, à glisser sur un fond sablonneux et rocheux, avec les montagnes en arrière-plan et le soleil qui se couche sur l'Atlantique. C'est réel, pas un mythe de blog de voyage.
+    </p>
+    <div class="highlight-box">
+      Ce qui distingue Imsouane c'est que la vague est à la fois accessible aux débutants et satisfaisante pour les confirmés. Rare dans le monde du surf.
+    </div>
+
+    <div class="article-img">
+      <img src="../images/imsouane-village.jpg" alt="Escaliers bleus d'Imsouane menant à la plage au coucher du soleil">
+      <div class="img-caption">Les escaliers bleus d'Imsouane — l'entrée vers la plage de la Cathédrale. Photo : Michiel Annaert / Unsplash</div>
+    </div>
+
+    <h2>Les deux spots : La Baie et La Cathédrale</h2>
+    <p>
+      Imsouane n'est pas un spot, c'est deux plages séparées par une péninsule, avec des vagues de caractères très différents. Comprendre ça avant d'arriver te fera gagner du temps.
+    </p>
+    <div class="spots-cards">
+      <div class="spot-card">
+        <div class="spot-card-title">La Baie</div>
+        <div class="spot-card-level level-deb">Débutant · Intermédiaire</div>
+        <div class="spot-card-desc">La vague longue légendaire. Droite douce sur fond sablonneux, rides de 600–800m. Idéale pour le longboard, le style, et la progression. Fonctionne à toutes les tailles et toutes les marées.</div>
+      </div>
+      <div class="spot-card">
+        <div class="spot-card-title">La Cathédrale</div>
+        <div class="spot-card-level level-inter">Intermédiaire · Confirmé</div>
+        <div class="spot-card-desc">Péninsule nord, plus exposée à la houle nord-atlantique. Vague plus puissante, plus creuse, parfois tubulaire à marée basse. Réservée aux surfeurs à l'aise dans des conditions engagées.</div>
+      </div>
+    </div>
+    <p>
+      Mon conseil : commence toujours par observer La Baie depuis les hauteurs avant d'entrer dans l'eau. La lecture des séries te donnera une idée claire de ce qui t'attend — taille, période, sens du vent. Ne te précipite pas.
+    </p>
+
+    <h2>La meilleure saison — et la vérité sur l'été</h2>
+    <p>
+      J'ai surfé à Imsouane en hiver, et c'est là que la magie opère vraiment. Entre octobre et février, les houles de l'Atlantique Nord descendent régulièrement sur la côte et alimentent La Baie de manière consistante.
+    </p>
+    <div class="saison-grid">
+      <div class="mois"><div class="mois-label">Jan</div><div class="mois-bar bar-excellent"></div><div class="mois-note">★★★</div></div>
+      <div class="mois"><div class="mois-label">Fév</div><div class="mois-bar bar-excellent"></div><div class="mois-note">★★★</div></div>
+      <div class="mois"><div class="mois-label">Mar</div><div class="mois-bar bar-good"></div><div class="mois-note">★★☆</div></div>
+      <div class="mois"><div class="mois-label">Avr</div><div class="mois-bar bar-good"></div><div class="mois-note">★★☆</div></div>
+      <div class="mois"><div class="mois-label">Mai</div><div class="mois-bar bar-ok"></div><div class="mois-note">★☆☆</div></div>
+      <div class="mois"><div class="mois-label">Jun</div><div class="mois-bar bar-low"></div><div class="mois-note">☆☆☆</div></div>
+      <div class="mois"><div class="mois-label">Jul</div><div class="mois-bar bar-low"></div><div class="mois-note">☆☆☆</div></div>
+      <div class="mois"><div class="mois-label">Aoû</div><div class="mois-bar bar-low"></div><div class="mois-note">☆☆☆</div></div>
+      <div class="mois"><div class="mois-label">Sep</div><div class="mois-bar bar-ok"></div><div class="mois-note">★☆☆</div></div>
+      <div class="mois"><div class="mois-label">Oct</div><div class="mois-bar bar-good"></div><div class="mois-note">★★☆</div></div>
+      <div class="mois"><div class="mois-label">Nov</div><div class="mois-bar bar-excellent"></div><div class="mois-note">★★★</div></div>
+      <div class="mois"><div class="mois-label">Déc</div><div class="mois-bar bar-excellent"></div><div class="mois-note">★★★</div></div>
+    </div>
+    <div class="warning-box">
+      <strong>La vérité sur l'été :</strong> Juin à août, Imsouane est plate ou presque. Les conditions sont parfaites pour apprendre les bases, mais décevantes si tu arrives avec des attentes de longues droites puissantes. Anticipe ça dans ton planning.
+    </div>
+    <p>
+      En hiver il faut une combinaison intégrale — l'eau descend autour de 17–18°C. Pas sibérien, mais assez pour que deux heures sans combi te sortent de l'eau avant de vouloir.
+    </p>
+
+    <div class="article-img portrait">
+      <img src="../images/imsouane-surfer.jpg" alt="Surfeur seul sur la plage d'Imsouane au coucher de soleil doré">
+      <div class="img-caption">Fin de session sur la plage d'Imsouane. C'est souvent comme ça que se terminent les meilleures journées. Photo : Michiel Annaert / Unsplash</div>
+    </div>
+
+    <h2>Les conditions optimales — ce que personne ne te dit</h2>
+    <p>
+      La Baie fonctionne à toutes les marées, mais elle est meilleure à <strong>mi-marée montante</strong>. Les meilleures sessions ont lieu tôt le matin avant que le vent thermique se lève, ou en fin de journée quand il retombe. Le vent offshore vient de l'est — quand tu sens un vent chaud et sec dans le dos face à l'océan, c'est bon signe.
+    </p>
+    <p>
+      Pour les prévisions, utilise <strong>Windguru ou Surfline</strong> avec le point "Imsouane Bay". Cherche des houles de nord-ouest avec une période supérieure à 12 secondes — c'est là que la vague prend son meilleur angle et sa plus grande longueur.
+    </p>
+
+    <h2>La foule — l'honnêteté s'impose</h2>
+    <p>
+      Imsouane a explosé. Ce qui était un village préservé il y a dix ans est aujourd'hui une destination touristique bien rodée. En haute saison (novembre–janvier), il peut y avoir beaucoup de monde à l'eau, surtout à La Baie.
+    </p>
+    <p>
+      La bonne nouvelle : la vague est tellement longue qu'elle absorbe la foule mieux qu'un beach break classique. Il y a de la place pour tout le monde si tout le monde respecte les règles de priorité. La mauvaise nouvelle : les règles de priorité ne sont pas toujours respectées.
+    </p>
+
+    <div class="article-img">
+      <img src="../images/imsouane-boards.jpg" alt="Longboards jaunes et verts posés à Imsouane, surf camp en arrière-plan">
+      <div class="img-caption">Le longboard est roi à Imsouane — la vague longue de La Baie lui va parfaitement. Photo : Jarno Colijn / Unsplash</div>
+    </div>
+
+    <h2>S'y rendre et où dormir</h2>
+    <p>
+      Depuis Agadir (aéroport le plus proche) : environ 2h de route par la côte. La route est belle mais sinueuse sur les 30 derniers kilomètres — prévois un petit véhicule si tu loues une voiture. Il n'y a pas de transport en commun direct : taxi collectif depuis Agadir jusqu'à Tamri, puis taxi local jusqu'à Imsouane.
+    </p>
+    <p>
+      Pour l'hébergement, le village a beaucoup de guesthouses et surf camps à tous les prix. Les prix ont flambé ces dernières années — compte entre <strong>30 et 80€/nuit</strong> selon le confort. Réserve à l'avance en saison hivernale, les bonnes adresses se remplissent vite.
+    </p>
+
+    <h2>Mon avis — ce que j'en retiens vraiment</h2>
+    <p>
+      Imsouane tient ses promesses si tu y vas au bon moment. En hiver avec une bonne houle, La Baie est magique — point. La vague est longue, douce, régulière, et le cadre est beau. C'est l'un des rares spots où tu peux vraiment travailler ton style et ton footwork sans te battre contre la vague.
+    </p>
+    <p>
+      Mais c'est un spot qui déçoit si tu arrives en été avec des attentes démesurées, ou si tu n'es pas prêt à gérer la foule. Va-y les yeux ouverts, profite de ce que le spot offre vraiment — et tu repartiras avec des sessions inoubliables.
+    </p>
+
+  </article>
+
+  <aside class="sidebar">
+
+    <div class="avis-box">
+      <div class="avis-title">L'avis Dr. Saad</div>
+      <div class="avis-text">"Imsouane en hiver c'est une autre dimension. La Baie m'a appris à prendre mon temps sur la planche — chose impossible sur les spots plus courts et plus puissants du Maroc."</div>
+      <div class="avis-author">— Dr. Saad, surfeur depuis Rabat</div>
+    </div>
+
+    <div class="sidebar-card">
+      <div class="sidebar-card-title">Infos pratiques</div>
+      <div class="info-row"><span class="info-label">Région</span><span class="info-val">Souss-Massa</span></div>
+      <div class="info-row"><span class="info-label">Distance Agadir</span><span class="info-val">80 km · 2h</span></div>
+      <div class="info-row"><span class="info-label">Type de fond</span><span class="info-val">Sable & rochers</span></div>
+      <div class="info-row"><span class="info-label">Marée idéale</span><span class="info-val good">Mi-marée montante</span></div>
+      <div class="info-row"><span class="info-label">Vent idéal</span><span class="info-val good">Est (offshore)</span></div>
+      <div class="info-row"><span class="info-label">Eau en hiver</span><span class="info-val">17–18°C</span></div>
+      <div class="info-row"><span class="info-label">Combinaison</span><span class="info-val medium">3/2 ou 4/3 hiver</span></div>
+    </div>
+
+    <div class="sidebar-card">
+      <div class="sidebar-card-title">Score AtlasWaves</div>
+      <div class="score-row">
+        <span class="score-label">Qualité de vague</span>
+        <div class="score-dots">
+          <div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div>
+        </div>
+      </div>
+      <div class="score-row">
+        <span class="score-label">Accessibilité</span>
+        <div class="score-dots">
+          <div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot empty"></div>
+        </div>
+      </div>
+      <div class="score-row">
+        <span class="score-label">Régularité</span>
+        <div class="score-dots">
+          <div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot empty"></div>
+        </div>
+      </div>
+      <div class="score-row">
+        <span class="score-label">Cadre & ambiance</span>
+        <div class="score-dots">
+          <div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div>
+        </div>
+      </div>
+      <div class="score-row">
+        <span class="score-label">Foule (hiver)</span>
+        <div class="score-dots">
+          <div class="dot filled"></div><div class="dot filled"></div><div class="dot empty"></div><div class="dot empty"></div><div class="dot empty"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sidebar-card">
+      <div class="sidebar-card-title">Spots à explorer ensuite</div>
+      <div class="info-row"><span class="info-label"><a href="#" style="color:var(--orange);text-decoration:none;">Anchor Point</a></span><span class="info-val" style="font-size:12px;color:#aaa;">Expert · Taghazout</span></div>
+      <div class="info-row"><span class="info-label"><a href="#" style="color:var(--orange);text-decoration:none;">Essaouira</a></span><span class="info-val" style="font-size:12px;color:#aaa;">Tous niveaux</span></div>
+      <div class="info-row"><span class="info-label"><a href="#" style="color:var(--orange);text-decoration:none;">Sidi Kaouki</a></span><span class="info-val" style="font-size:12px;color:#aaa;">Débutant</span></div>
+    </div>
+
+  </aside>
+
+</div>
+
+<footer>
+  <a class="footer-logo" href="../index.html">Atlas<span>Waves</span></a>
+  <span>© 2026 AtlasWaves — Le surf marocain, autrement.</span>
+  <div class="footer-links-row">
+    <a href="#">Instagram</a>
+    <a href="../about.html">À propos</a>
+    <a href="#">Contact</a>
+  </div>
+</footer>
+
+</body>
+</html>
