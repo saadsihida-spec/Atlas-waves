@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>À propos — AtlasWaves</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --orange: #E8570A;
+    --orange-dark: #C4490A;
+    --orange-light: #FEE9DC;
+    --navy: #0D3B5E;
+    --teal: #2BA38C;
+    --bg: #FFF8F0;
+    --dark: #1a1a1a;
+    --muted: #666;
+    --border: rgba(0,0,0,0.08);
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--bg);
+    color: var(--dark);
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.2rem 3rem;
+    background: var(--bg);
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  .logo {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 22px;
+    letter-spacing: -0.5px;
+    color: var(--dark);
+    text-decoration: none;
+  }
+
+  .logo span { color: var(--orange); }
+
+  .nav-links {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-size: 14px;
+    color: var(--muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover,
+  .nav-links a.active { color: var(--orange); }
+
+  .btn {
+    display: inline-block;
+    padding: 11px 24px;
+    border-radius: 40px;
+    font-size: 14px;
+    font-family: 'DM Sans', sans-serif;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-decoration: none;
+    border: none;
+  }
+
+  .btn-primary { background: var(--orange); color: #fff; }
+  .btn-primary:hover { background: var(--orange-dark); transform: translateY(-1px); }
+  .btn-ghost { background: transparent; color: var(--dark); border: 1px solid rgba(0,0,0,0.2); }
+  .btn-ghost:hover { border-color: var(--orange); color: var(--orange); }
+
+  /* ── HERO ── */
+  .about-hero {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 70vh;
+    overflow: hidden;
+  }
+
+  .hero-left {
+    padding: 5rem 4rem 4rem 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .eyebrow::before {
+    content: '';
+    display: inline-block;
+    width: 28px;
+    height: 1.5px;
+    background: var(--orange);
+    flex-shrink: 0;
+  }
+
+  .hero-title {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: clamp(36px, 4.5vw, 56px);
+    line-height: 1.05;
+    letter-spacing: -1.5px;
+    color: var(--dark);
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-title em {
+    font-style: normal;
+    color: var(--orange);
+  }
+
+  .hero-sub {
+    font-size: 17px;
+    line-height: 1.75;
+    color: var(--muted);
+    font-weight: 300;
+    max-width: 420px;
+    margin-bottom: 2.5rem;
+  }
+
+  .hero-right {
+    position: relative;
+    overflow: hidden;
+    background: var(--navy);
+  }
+
+  .ocean-bg {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(160deg, #0D3B5E 0%, #1A6B8A 45%, #2BA38C 75%, #F4A04A 100%);
+  }
+
+  .hero-quote {
+    position: absolute;
+    bottom: 3rem;
+    left: 2rem;
+    right: 2rem;
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-left: 3px solid var(--orange);
+    border-radius: 12px;
+    padding: 1.5rem 1.75rem;
+    backdrop-filter: blur(8px);
+    color: #fff;
+  }
+
+  .quote-text {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    font-weight: 300;
+    font-style: italic;
+    line-height: 1.65;
+    color: rgba(255,255,255,0.9);
+    margin-bottom: 0.75rem;
+  }
+
+  .quote-author {
+    font-size: 12px;
+    color: rgba(255,255,255,0.5);
+    letter-spacing: 0.05em;
+  }
+
+  /* ── BADGES ── */
+  .badges-row {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 2.5rem;
+  }
+
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 7px 14px;
+    border-radius: 40px;
+    font-size: 13px;
+    font-weight: 400;
+    border: 1px solid rgba(0,0,0,0.1);
+    background: #fff;
+    color: var(--dark);
+  }
+
+  .badge-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .dot-orange { background: var(--orange); }
+  .dot-teal { background: var(--teal); }
+  .dot-navy { background: var(--navy); }
+
+  /* ── STORY SECTION ── */
+  .story-section {
+    padding: 6rem 3rem;
+    background: #fff;
+  }
+
+  .story-grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 5rem;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .story-sidebar {
+    position: sticky;
+    top: 6rem;
+    align-self: start;
+  }
+
+  .sidebar-label {
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 1rem;
+  }
+
+  .sidebar-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 24px;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    color: var(--dark);
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+  }
+
+  .sidebar-nav {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .sidebar-nav a {
+    font-size: 14px;
+    color: var(--muted);
+    text-decoration: none;
+    padding: 6px 0;
+    display: block;
+    border-left: 2px solid transparent;
+    padding-left: 12px;
+    transition: all 0.2s;
+  }
+
+  .sidebar-nav a:hover {
+    color: var(--orange);
+    border-left-color: var(--orange);
+  }
+
+  .story-content { max-width: 620px; }
+
+  .story-block {
+    margin-bottom: 3.5rem;
+    padding-bottom: 3.5rem;
+    border-bottom: 1px solid rgba(0,0,0,0.06);
+  }
+
+  .story-block:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+
+  .block-eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 0.75rem;
+  }
+
+  .block-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    color: var(--dark);
+    margin-bottom: 1.25rem;
+    line-height: 1.25;
+  }
+
+  .block-text {
+    font-size: 16px;
+    line-height: 1.8;
+    color: #555;
+    font-weight: 300;
+  }
+
+  .block-text p { margin-bottom: 1rem; }
+  .block-text p:last-child { margin-bottom: 0; }
+
+  .block-text strong {
+    color: var(--dark);
+    font-weight: 500;
+  }
+
+  .highlight-box {
+    background: var(--orange-light);
+    border-left: 3px solid var(--orange);
+    border-radius: 0 10px 10px 0;
+    padding: 1.25rem 1.5rem;
+    margin: 1.5rem 0;
+    font-size: 15px;
+    line-height: 1.7;
+    color: #7a3010;
+    font-weight: 400;
+  }
+
+  /* ── VALEURS ── */
+  .values-section {
+    padding: 6rem 3rem;
+    background: var(--dark);
+    color: #fff;
+  }
+
+  .values-header {
+    text-align: center;
+    margin-bottom: 4rem;
+  }
+
+  .values-eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 0.75rem;
+  }
+
+  .values-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 36px;
+    font-weight: 800;
+    letter-spacing: -1px;
+    color: #fff;
+  }
+
+  .values-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .value-card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 16px;
+    padding: 2rem 1.75rem;
+    transition: background 0.2s;
+  }
+
+  .value-card:hover { background: rgba(255,255,255,0.08); }
+
+  .value-num {
+    font-family: 'Syne', sans-serif;
+    font-size: 42px;
+    font-weight: 800;
+    color: var(--orange);
+    opacity: 0.4;
+    line-height: 1;
+    margin-bottom: 1rem;
+  }
+
+  .value-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 17px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 0.65rem;
+  }
+
+  .value-desc {
+    font-size: 14px;
+    color: rgba(255,255,255,0.45);
+    font-weight: 300;
+    line-height: 1.65;
+  }
+
+  /* ── CTA ── */
+  .cta-section {
+    padding: 6rem 3rem;
+    background: var(--bg);
+    text-align: center;
+  }
+
+  .cta-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 36px;
+    font-weight: 800;
+    letter-spacing: -1px;
+    color: var(--dark);
+    margin-bottom: 1rem;
+  }
+
+  .cta-sub {
+    font-size: 16px;
+    color: var(--muted);
+    font-weight: 300;
+    margin-bottom: 2.5rem;
+    max-width: 480px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.7;
+  }
+
+  .cta-btns {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: #111;
+    color: rgba(255,255,255,0.4);
+    padding: 2rem 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 13px;
+  }
+
+  .footer-logo {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 18px;
+    color: #fff;
+    text-decoration: none;
+  }
+
+  .footer-logo span { color: var(--orange); }
+
+  .footer-links-row {
+    display: flex;
+    gap: 1.5rem;
+  }
+
+  .footer-links-row a {
+    color: rgba(255,255,255,0.35);
+    text-decoration: none;
+    font-size: 13px;
+    transition: color 0.2s;
+  }
+
+  .footer-links-row a:hover { color: var(--orange); }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 768px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { display: none; }
+    .about-hero { grid-template-columns: 1fr; }
+    .hero-right { min-height: 280px; }
+    .hero-left { padding: 3rem 1.5rem 2rem; }
+    .story-section { padding: 4rem 1.5rem; }
+    .story-grid { grid-template-columns: 1fr; gap: 2rem; }
+    .story-sidebar { position: static; }
+    .values-section { padding: 4rem 1.5rem; }
+    .values-grid { grid-template-columns: 1fr; }
+    .cta-section { padding: 4rem 1.5rem; }
+    footer { flex-direction: column; gap: 1rem; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="logo" href="index.html">Atlas<span>Waves</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html#spots">Spots</a></li>
+    <li><a href="index.html#technique">Technique</a></li>
+    <li><a href="index.html#corps">Corps & Surf</a></li>
+    <li><a href="index.html#articles">Mag</a></li>
+    <li><a href="about.html" class="active">À propos</a></li>
+  </ul>
+  <a class="btn btn-primary" href="index.html#newsletter">Newsletter</a>
+</nav>
+
+<!-- HERO -->
+<section class="about-hero">
+  <div class="hero-left">
+    <div class="eyebrow">À propos</div>
+    <h1 class="hero-title">
+      Médecin.<br>
+      Surfeur.<br>
+      <em>Marocain.</em>
+    </h1>
+    <div class="badges-row">
+      <div class="badge"><div class="badge-dot dot-navy"></div>Résident en rhumatologie</div>
+      <div class="badge"><div class="badge-dot dot-teal"></div>Surfeur depuis Rabat</div>
+      <div class="badge"><div class="badge-dot dot-orange"></div>Oudayas, mon premier spot</div>
+    </div>
+    <p class="hero-sub">
+      AtlasWaves est né d'une conviction simple : personne ne parlait du surf marocain comme il mérite d'être raconté — de l'intérieur, avec honnêteté, et avec une vraie connaissance du corps.
+    </p>
+  </div>
+
+  <div class="hero-right">
+    <div class="ocean-bg"></div>
+    <div class="hero-quote">
+      <div class="quote-text">
+        "La première fois que j'ai vu les vagues des Oudayas, je ne savais pas nager correctement. Aujourd'hui je soigne les épaules des surfeurs. La vie a ses façons de boucler les choses."
+      </div>
+      <div class="quote-author">— Dr. Saad, fondateur d'AtlasWaves</div>
+    </div>
+  </div>
+</section>
+
+<!-- STORY -->
+<section class="story-section">
+  <div class="story-grid">
+
+    <div class="story-sidebar">
+      <div class="sidebar-label">Mon histoire</div>
+      <div class="sidebar-title">Pourquoi AtlasWaves</div>
+      <ul class="sidebar-nav">
+        <li><a href="#debut">Le début</a></li>
+        <li><a href="#medecine">La médecine</a></li>
+        <li><a href="#site">Le site</a></li>
+        <li><a href="#mission">La mission</a></li>
+      </ul>
+    </div>
+
+    <div class="story-content">
+
+      <div class="story-block" id="debut">
+        <div class="block-eyebrow">Les origines</div>
+        <h2 class="block-title">Rabat, les Oudayas, et l'Atlantique</h2>
+        <div class="block-text">
+          <p>
+            J'ai grandi à Rabat, à quelques kilomètres de l'Atlantique. Les Oudayas — cette plage urbaine adossée à la médina — c'est là que tout a commencé pour moi. Pas dans une école de surf de Taghazout, pas avec un coach. Juste l'océan, une planche trop grande, et des locaux qui m'ont appris à lire les vagues sans jamais m'expliquer comment faire.
+          </p>
+          <p>
+            Le surf au Maroc, pour beaucoup de Marocains, ça se vit comme ça. Sans filet, sans cadre, avec une passion qui ne s'explique pas vraiment. On se retrouve à l'eau parce que l'eau nous appelle.
+          </p>
+          <div class="highlight-box">
+            Ce que j'ai appris aux Oudayas, aucun manuel ne me l'aurait enseigné : que surfer c'est autant lire l'océan que se lire soi-même.
+          </div>
+          <p>
+            Depuis, j'ai surfé à Imsouane, Taghazout, Essaouira, Safi. Chaque spot m'a appris quelque chose de différent — sur les vagues, sur le corps, sur le Maroc.
+          </p>
+        </div>
+      </div>
+
+      <div class="story-block" id="medecine">
+        <div class="block-eyebrow">La double casquette</div>
+        <h2 class="block-title">Quand la médecine rencontre l'océan</h2>
+        <div class="block-text">
+          <p>
+            Je suis résident en rhumatologie au CHU Ibn Sina de Rabat. Mon quotidien c'est les articulations, les tendons, les pathologies musculo-squelettiques — exactement ce que le surf sollicite à chaque session.
+          </p>
+          <p>
+            Au fil des années j'ai réalisé quelque chose : <strong>les surfeurs marocains se blessent souvent inutilement</strong>. Pas parce qu'ils manquent de talent, mais parce qu'ils n'ont accès à aucune information médicale fiable sur leur sport. Ce qui existe en anglais pour les surfeurs australiens ou californiens n'existe tout simplement pas en français pour les surfeurs marocains.
+          </p>
+          <p>
+            C'est là que ma double casquette prend tout son sens. Je peux expliquer ce qui se passe dans une épaule en paddling, pourquoi le bas du dos souffre après une longue session, comment prévenir une tendinopathie du poignet — avec un langage accessible, pas du jargon médical.
+          </p>
+        </div>
+      </div>
+
+      <div class="story-block" id="site">
+        <div class="block-eyebrow">La genèse</div>
+        <h2 class="block-title">Pourquoi ce site existe</h2>
+        <div class="block-text">
+          <p>
+            AtlasWaves est né d'une frustration simple : quand je cherchais des infos sur les spots marocains, je tombais soit sur des sites de voyagistes européens qui décrivaient Taghazout comme un "paradis du surf exotique", soit sur des forums morts depuis 2015.
+          </p>
+          <p>
+            Personne ne parlait du surf marocain <strong>comme un Marocain qui surfe vraiment</strong>. Personne ne racontait Imsouane en hiver avec ses vents de sud qui gâchent tout. Personne ne décrivait les réalités des Oudayas, ou ce que c'est de surfer à Safi quand la houle monte sérieusement.
+          </p>
+          <div class="highlight-box">
+            AtlasWaves c'est le site que j'aurais voulu trouver quand j'ai commencé à surfer. Un guide honnête, local, et documenté.
+          </div>
+        </div>
+      </div>
+
+      <div class="story-block" id="mission">
+        <div class="block-eyebrow">La mission</div>
+        <h2 class="block-title">Ce que je veux construire ici</h2>
+        <div class="block-text">
+          <p>
+            AtlasWaves a trois ambitions. <strong>Documenter les spots marocains</strong> avec des fiches honnêtes — les conditions réelles, les pièges, les meilleures saisons, les hébergements locaux. Pas du tourisme, du surf.
+          </p>
+          <p>
+            <strong>Éduquer sur le corps du surfeur</strong> — blessures, prévention, récupération. En français, accessible, par quelqu'un qui a la double légitimité médicale et pratique.
+          </p>
+          <p>
+            Et enfin <strong>représenter une culture surf marocaine</strong> qui mérite d'exister au-delà des clichés. Le Maroc n'est pas juste une destination surf pour touristes européens. C'est un pays avec ses propres surfeurs, sa propre histoire avec l'océan, et ses propres façons de vivre les vagues.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- VALEURS -->
+<section class="values-section">
+  <div class="values-header">
+    <div class="values-eyebrow">Ce qui guide AtlasWaves</div>
+    <div class="values-title">Trois principes, un site</div>
+  </div>
+  <div class="values-grid">
+    <div class="value-card">
+      <div class="value-num">01</div>
+      <div class="value-title">L'honnêteté avant tout</div>
+      <div class="value-desc">Pas de spot idéalisé, pas de conseil médical approximatif. Si une plage est dangereuse pour les débutants, je le dis. Si une blessure nécessite un médecin, je le dis aussi.</div>
+    </div>
+    <div class="value-card">
+      <div class="value-num">02</div>
+      <div class="value-title">La légitimité par la pratique</div>
+      <div class="value-desc">Je parle des spots où j'ai surfé. Je parle des blessures que je traite et que j'ai vécues. Aucun contenu inventé, aucune fiche copiée-collée d'un autre site.</div>
+    </div>
+    <div class="value-card">
+      <div class="value-num">03</div>
+      <div class="value-title">Le regard marocain</div>
+      <div class="value-desc">Le Maroc vu par un Marocain. Pas une destination exotique pour touristes, mais un pays avec une culture surf propre, des locaux qui surfent depuis toujours, et des spots qui méritent d'être racontés correctement.</div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <h2 class="cta-title">On surfe ensemble ?</h2>
+  <p class="cta-sub">Que tu sois surfeur débutant, confirmé, ou juste curieux — AtlasWaves est fait pour toi. Commence par les spots ou plonge dans Corps & Surf.</p>
+  <div class="cta-btns">
+    <a class="btn btn-primary" href="index.html#spots">Explorer les spots</a>
+    <a class="btn btn-ghost" href="index.html#corps">Corps & Surf</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <a class="footer-logo" href="index.html">Atlas<span>Waves</span></a>
+  <span>© 2026 AtlasWaves — Le surf marocain, autrement.</span>
+  <div class="footer-links-row">
+    <a href="#">Instagram</a>
+    <a href="#">Contact</a>
+  </div>
+</footer>
+
+</body>
+</html>
